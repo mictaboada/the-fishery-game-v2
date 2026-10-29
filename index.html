@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>The Fishery</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="app">
+  <div class="card">
+    <div class="hero-emoji">🐟</div>
+    <h1>The Fishery</h1>
+    <p class="sub">Take a fish or leave it for the group. Choose any time before the round closes.</p>
+
+    <p class="notice hidden" id="setup-notice">
+      This page isn't connected to a database yet. Fill in <code>config.js</code> with your Supabase URL and key.
+    </p>
+    <p class="notice error-notice hidden" id="load-error"></p>
+
+    <div id="game-block" class="hidden">
+      <div class="stat-row">
+        <div class="stat"><span class="stat-label">Round</span><span class="stat-value" id="stat-round">-</span></div>
+        <div class="stat"><span class="stat-label">Fish in pool</span><span class="stat-value fish" id="stat-pool">-</span></div>
+      </div>
+
+      <div class="last-round hidden" id="last-round"></div>
+
+      <div id="end-block" class="hidden">
+        <div class="result-banner big" id="end-banner"></div>
+      </div>
+
+      <div id="choose-block" class="hidden">
+        <label class="field">Your name
+          <input type="text" id="player-name" maxlength="40" placeholder="First and last name" autocomplete="name" />
+        </label>
+        <p class="sub small">Use the same name every round. You can choose once per round and can't change it afterward.</p>
+        <div class="choice-buttons">
+          <button class="btn choice catch" id="btn-take">🎣 Take a fish</button>
+          <button class="btn choice abstain" id="btn-skip">✋ Take none</button>
+        </div>
+        <p class="message hidden" id="message"></p>
+      </div>
+
+      <div id="history-block" class="hidden">
+        <h3>Past rounds</h3>
+        <div class="history-table-wrap">
+          <table class="history-table" id="history-table"></table>
+        </div>
+      </div>
+
+      <button class="btn wide" id="btn-refresh">Refresh</button>
+    </div>
+  </div>
+</div>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
